@@ -322,3 +322,11 @@ Outputs:
 
 virtual_network_id = "/subscriptions/765266c6-9a23-4638-af32-dd1e32613047/resourceGroups/devops-TP2/providers/Microsoft.Network/virtualNetworks/example-network"
 hadi@LAPTOP-ADEE62RQ:/mnt/c/Users/hadij/Downloads/Devops/TP4$
+
+
+
+
+# terraform output
+
+hadi@LAPTOP-ADEE62RQ:/mnt/c/Users/hadij/Downloads/Devops/TP4$ terraform output
+virtual_network_id = "/subscriptions/765266c6-9a23-4638-af32-dd1e32613047/resourceGroups/devops-TP2/providers/Microsoft.Network/virtualNetworks/example-network"
