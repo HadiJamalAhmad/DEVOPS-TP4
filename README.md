@@ -324,6 +324,8 @@ virtual_network_id = "/subscriptions/765266c6-9a23-4638-af32-dd1e32613047/resour
 
 # Se connecter à la VM avec SSH
 
+# terraform init
+
 hadi@LAPTOP-ADEE62RQ:/mnt/c/Users/hadij/Downloads/Devops/TP4$ terraform init
 
 Initializing the backend...
@@ -345,6 +347,9 @@ should now work.
 If you ever set or change modules or backend configuration for Terraform,
 rerun this command to reinitialize your working directory. If you forget, other
 commands will detect it and remind you to do so if necessary.
+
+# terraform plan -out main.tfplan
+
 hadi@LAPTOP-ADEE62RQ:/mnt/c/Users/hadij/Downloads/Devops/TP4$ terraform plan -out main.tfplan
 tls_private_key.example_ssh: Refreshing state... [id=bc1753b7d31efc59ceb094e1f9738bae5259836e]
 data.azurerm_subnet.tp4: Reading...
