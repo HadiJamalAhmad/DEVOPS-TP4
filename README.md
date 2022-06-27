@@ -230,78 +230,59 @@ hadi@LAPTOP-ADEE62RQ:/mnt/c/Users/hadij/Downloads/Devops/TP4$
 hadi@LAPTOP-ADEE62RQ:/mnt/c/Users/hadij/Downloads/Devops/TP4$ terraform apply
 tls_private_key.example_ssh: Refreshing state... [id=bc1753b7d31efc59ceb094e1f9738bae5259836e]
 data.azurerm_subnet.tp4: Reading...
+data.azurerm_virtual_network.tp4: Reading...
 data.azurerm_resource_group.tp4: Reading...
 azurerm_public_ip.myterraformpublicip: Refreshing state... [id=/subscriptions/765266c6-9a23-4638-af32-dd1e32613047/resourceGroups/devops-TP2/providers/Microsoft.Network/publicIPAddresses/myPublicIP_]
-data.azurerm_virtual_network.tp4: Reading...
 azurerm_network_security_group.myterraformnsg: Refreshing state... [id=/subscriptions/765266c6-9a23-4638-af32-dd1e32613047/resourceGroups/devops-TP2/providers/Microsoft.Network/networkSecurityGroups/myNetworkSecurityGroup_Hadi]
-data.azurerm_resource_group.tp4: Read complete after 0s [id=/subscriptions/765266c6-9a23-4638-af32-dd1e32613047/resourceGroups/devops-TP2]
+data.azurerm_resource_group.tp4: Read complete after 1s [id=/subscriptions/765266c6-9a23-4638-af32-dd1e32613047/resourceGroups/devops-TP2]
 random_id.randomId: Refreshing state... [id=eQgJE6ACAFU]
-data.azurerm_virtual_network.tp4: Read complete after 0s [id=/subscriptions/765266c6-9a23-4638-af32-dd1e32613047/resourceGroups/devops-TP2/providers/Microsoft.Network/virtualNetworks/example-network]
 data.azurerm_subnet.tp4: Read complete after 1s [id=/subscriptions/765266c6-9a23-4638-af32-dd1e32613047/resourceGroups/devops-TP2/providers/Microsoft.Network/virtualNetworks/example-network/subnets/internal]
 azurerm_network_interface.myterraformnic: Refreshing state... [id=/subscriptions/765266c6-9a23-4638-af32-dd1e32613047/resourceGroups/devops-TP2/providers/Microsoft.Network/networkInterfaces/myNIC]
+data.azurerm_virtual_network.tp4: Read complete after 1s [id=/subscriptions/765266c6-9a23-4638-af32-dd1e32613047/resourceGroups/devops-TP2/providers/Microsoft.Network/virtualNetworks/example-network]
 azurerm_network_interface_security_group_association.example: Refreshing state... [id=/subscriptions/765266c6-9a23-4638-af32-dd1e32613047/resourceGroups/devops-TP2/providers/Microsoft.Network/networkInterfaces/myNIC|/subscriptions/765266c6-9a23-4638-af32-dd1e32613047/resourceGroups/devops-TP2/providers/Microsoft.Network/networkSecurityGroups/myNetworkSecurityGroup_Hadi]
+azurerm_linux_virtual_machine.devops-20211136: Refreshing state... [id=/subscriptions/765266c6-9a23-4638-af32-dd1e32613047/resourceGroups/devops-TP2/providers/Microsoft.Compute/virtualMachines/myVM]
 
 Terraform used the selected providers to generate the following execution plan. Resource actions are indicated with the following        
 symbols:
-  + create
+-/+ destroy and then create replacement
 
 Terraform will perform the following actions:
 
-  # azurerm_linux_virtual_machine.devops-20211136 will be created
-  + resource "azurerm_linux_virtual_machine" "devops-20211136" {
-      + admin_username                  = "devops"
-      + allow_extension_operations      = true
-      + computer_name                   = "myvm"
-      + disable_password_authentication = true
-      + extensions_time_budget          = "PT1H30M"
-      + id                              = (known after apply)
-      + location                        = "francecentral"
-      + max_bid_price                   = -1
-      + name                            = "myVM"
-      + network_interface_ids           = [
-          + "/subscriptions/765266c6-9a23-4638-af32-dd1e32613047/resourceGroups/devops-TP2/providers/Microsoft.Network/networkInterfaces/myNIC",
-        ]
-      + patch_mode                      = "ImageDefault"
-      + platform_fault_domain           = -1
-      + priority                        = "Regular"
-      + private_ip_address              = (known after apply)
-      + private_ip_addresses            = (known after apply)
-      + provision_vm_agent              = true
-      + public_ip_address               = (known after apply)
-      + public_ip_addresses             = (known after apply)
-      + resource_group_name             = "devops-TP2"
-      + size                            = "Standard_D2s_v3"
-      + virtual_machine_id              = (known after apply)
+  # azurerm_linux_virtual_machine.devops-20211136 must be replaced
+-/+ resource "azurerm_linux_virtual_machine" "devops-20211136" {
+      - encryption_at_host_enabled      = false -> null
+      ~ id                              = "/subscriptions/765266c6-9a23-4638-af32-dd1e32613047/resourceGroups/devops-TP2/providers/Microsoft.Compute/virtualMachines/myVM" -> (known after apply)
+      ~ name                            = "myVM" -> "devops-20211136" # forces replacement
+      ~ private_ip_address              = "10.3.1.7" -> (known after apply)
+      ~ private_ip_addresses            = [
+          - "10.3.1.7",
+        ] -> (known after apply)
+      ~ public_ip_address               = "20.111.29.11" -> (known after apply)
+      ~ public_ip_addresses             = [
+          - "20.111.29.11",
+        ] -> (known after apply)
+      - secure_boot_enabled             = false -> null
+      - tags                            = {} -> null
+      ~ virtual_machine_id              = "7ccee57e-ccb8-4f00-8917-f1aa54fccad5" -> (known after apply)
+      - vtpm_enabled                    = false -> null
+        # (14 unchanged attributes hidden)
 
-      + admin_ssh_key {
-          + public_key = <<-EOT
-                ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAACAQCkgqV92+TB0pW6oVL8Gx8fm1C0JmJBfrfgekswIgSWJD2iAACzt/R1uYXvWzk5sIa/i+t56/qCDF8yzI08+LJCrfrvijNxEP2grg/+KFJTTDMPX5DiPahwuWN0yxPP3skiUHpCZ2829mNWoYHIAF3AtyK4FCWXeB9IFumMPW9jxzzzHEkPWErLxPdpWJ4m/UsXBN5Nnrvz+4oiZtGsctsex9KrZE9SsxtupVj6fQIOi2E9yfTcsF+t8KPEY6ooL6MD6vZYGvtnLH9uH4F/NSK3H7hlraXyxF5iYyzalfXCmUZVKZdH15Wl2rvCkWkrAeWSvbUIE6D+zpvbX1cQriUPhzPEv4i1N4yUMi3NiE7YU/fAhT1zRGncNfYywZ9MM/hL2orpkVlNnpNLenZ77NkWntDYOeb0FeqcqT35msAicERlyszeZiC5auVIZLEYk1tqKbGFjT/+ByMl0UnhTTdbpCgUu4DqyPp41KWXqbAbfjlPeKG2aDVrIRkFChibw64CZfrewngMMUkoXwASn3kkJiNFyfPhChcY/nwHhzWgZJOeZQr7DY66SMBnmZm/TAb8RaQCeeDsDF1dpA53bjyG/6JwyPVnyTY/8jrklb2kxHftkSLjytJR1ibNewBYQbOycXNRGHvlwpLl52W5xNWxAhtv5ldW6UCom/Wyr8BKXQ==
-            EOT
-          + username   = "devops"
+
+      ~ os_disk {
+          ~ disk_size_gb              = 30 -> (known after apply)
+            name                      = "myOsDisk"
+            # (3 unchanged attributes hidden)
         }
 
-      + os_disk {
-          + caching                   = "ReadWrite"
-          + disk_size_gb              = (known after apply)
-          + name                      = "myOsDisk"
-          + storage_account_type      = "Premium_LRS"
-          + write_accelerator_enabled = false
-        }
-
-      + source_image_reference {
-          + offer     = "UbuntuServer"
-          + publisher = "Canonical"
-          + sku       = "16.04-LTS"
-          + version   = "latest"
-        }
 
       + termination_notification {
           + enabled = (known after apply)
           + timeout = (known after apply)
         }
+        # (2 unchanged blocks hidden)
     }
 
-Plan: 1 to add, 0 to change, 0 to destroy.
+Plan: 1 to add, 0 to change, 1 to destroy.
 
 Do you want to perform these actions?
   Terraform will perform the actions described above.
@@ -309,20 +290,28 @@ Do you want to perform these actions?
 
   Enter a value: yes
 
+azurerm_linux_virtual_machine.devops-20211136: Destroying... [id=/subscriptions/765266c6-9a23-4638-af32-dd1e32613047/resourceGroups/devops-TP2/providers/Microsoft.Compute/virtualMachines/myVM]
+azurerm_linux_virtual_machine.devops-20211136: Still destroying... [id=/subscriptions/765266c6-9a23-4638-af32-...Microsoft.Compute/virtualMachines/myVM, 10s elapsed]
+azurerm_linux_virtual_machine.devops-20211136: Still destroying... [id=/subscriptions/765266c6-9a23-4638-af32-...Microsoft.Compute/virtualMachines/myVM, 20s elapsed]
+azurerm_linux_virtual_machine.devops-20211136: Still destroying... [id=/subscriptions/765266c6-9a23-4638-af32-...Microsoft.Compute/virtualMachines/myVM, 30s elapsed]
+azurerm_linux_virtual_machine.devops-20211136: Still destroying... [id=/subscriptions/765266c6-9a23-4638-af32-...Microsoft.Compute/virtualMachines/myVM, 40s elapsed]
+azurerm_linux_virtual_machine.devops-20211136: Still destroying... [id=/subscriptions/765266c6-9a23-4638-af32-...Microsoft.Compute/virtualMachines/myVM, 50s elapsed]
+azurerm_linux_virtual_machine.devops-20211136: Still destroying... [id=/subscriptions/765266c6-9a23-4638-af32-...Microsoft.Compute/virtualMachines/myVM, 1m0s elapsed]
+azurerm_linux_virtual_machine.devops-20211136: Still destroying... [id=/subscriptions/765266c6-9a23-4638-af32-...Microsoft.Compute/virtualMachines/myVM, 1m10s elapsed]
+azurerm_linux_virtual_machine.devops-20211136: Destruction complete after 1m16s
 azurerm_linux_virtual_machine.devops-20211136: Creating...
 azurerm_linux_virtual_machine.devops-20211136: Still creating... [10s elapsed]
 azurerm_linux_virtual_machine.devops-20211136: Still creating... [20s elapsed]
 azurerm_linux_virtual_machine.devops-20211136: Still creating... [30s elapsed]
 azurerm_linux_virtual_machine.devops-20211136: Still creating... [40s elapsed]
-azurerm_linux_virtual_machine.devops-20211136: Creation complete after 49s [id=/subscriptions/765266c6-9a23-4638-af32-dd1e32613047/resourceGroups/devops-TP2/providers/Microsoft.Compute/virtualMachines/myVM]
+azurerm_linux_virtual_machine.devops-20211136: Creation complete after 46s [id=/subscriptions/765266c6-9a23-4638-af32-dd1e32613047/resourceGroups/devops-TP2/providers/Microsoft.Compute/virtualMachines/devops-20211136]
 
-Apply complete! Resources: 1 added, 0 changed, 0 destroyed.
+Apply complete! Resources: 1 added, 0 changed, 1 destroyed.
 
 Outputs:
 
 virtual_network_id = "/subscriptions/765266c6-9a23-4638-af32-dd1e32613047/resourceGroups/devops-TP2/providers/Microsoft.Network/virtualNetworks/example-network"
 hadi@LAPTOP-ADEE62RQ:/mnt/c/Users/hadij/Downloads/Devops/TP4$
-
 
 
 
