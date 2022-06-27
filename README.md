@@ -319,3 +319,59 @@ hadi@LAPTOP-ADEE62RQ:/mnt/c/Users/hadij/Downloads/Devops/TP4$
 
 hadi@LAPTOP-ADEE62RQ:/mnt/c/Users/hadij/Downloads/Devops/TP4$ terraform output
 virtual_network_id = "/subscriptions/765266c6-9a23-4638-af32-dd1e32613047/resourceGroups/devops-TP2/providers/Microsoft.Network/virtualNetworks/example-network"
+
+
+
+# Se connecter à la VM avec SSH
+
+hadi@LAPTOP-ADEE62RQ:/mnt/c/Users/hadij/Downloads/Devops/TP4$ terraform init
+
+Initializing the backend...
+
+Initializing provider plugins...
+- Reusing previous version of hashicorp/azurerm from the dependency lock file
+- Reusing previous version of hashicorp/random from the dependency lock file
+- Reusing previous version of hashicorp/tls from the dependency lock file
+- Using previously-installed hashicorp/tls v3.4.0
+- Using previously-installed hashicorp/azurerm v3.0.0
+- Using previously-installed hashicorp/random v3.3.2
+
+Terraform has been successfully initialized!
+
+You may now begin working with Terraform. Try running "terraform plan" to see
+any changes that are required for your infrastructure. All Terraform commands
+should now work.
+
+If you ever set or change modules or backend configuration for Terraform,
+rerun this command to reinitialize your working directory. If you forget, other
+commands will detect it and remind you to do so if necessary.
+hadi@LAPTOP-ADEE62RQ:/mnt/c/Users/hadij/Downloads/Devops/TP4$ terraform plan -out main.tfplan
+tls_private_key.example_ssh: Refreshing state... [id=bc1753b7d31efc59ceb094e1f9738bae5259836e]
+data.azurerm_subnet.tp4: Reading...
+data.azurerm_virtual_network.tp4: Reading...
+data.azurerm_resource_group.tp4: Reading...
+azurerm_public_ip.myterraformpublicip: Refreshing state... [id=/subscriptions/765266c6-9a23-4638-af32-dd1e32613047/resourceGroups/devops-TP2/providers/Microsoft.Network/publicIPAddresses/myPublicIP_]
+azurerm_network_security_group.myterraformnsg: Refreshing state... [id=/subscriptions/765266c6-9a23-4638-af32-dd1e32613047/resourceGroups/devops-TP2/providers/Microsoft.Network/networkSecurityGroups/myNetworkSecurityGroup_Hadi]
+data.azurerm_resource_group.tp4: Read complete after 0s [id=/subscriptions/765266c6-9a23-4638-af32-dd1e32613047/resourceGroups/devops-TP2]
+random_id.randomId: Refreshing state... [id=eQgJE6ACAFU]
+data.azurerm_subnet.tp4: Read complete after 0s [id=/subscriptions/765266c6-9a23-4638-af32-dd1e32613047/resourceGroups/devops-TP2/providers/Microsoft.Network/virtualNetworks/example-network/subnets/internal]
+azurerm_network_interface.myterraformnic: Refreshing state... [id=/subscriptions/765266c6-9a23-4638-af32-dd1e32613047/resourceGroups/devops-TP2/providers/Microsoft.Network/networkInterfaces/myNIC]
+data.azurerm_virtual_network.tp4: Read complete after 0s [id=/subscriptions/765266c6-9a23-4638-af32-dd1e32613047/resourceGroups/devops-TP2/providers/Microsoft.Network/virtualNetworks/example-network]
+azurerm_network_interface_security_group_association.example: Refreshing state... [id=/subscriptions/765266c6-9a23-4638-af32-dd1e32613047/resourceGroups/devops-TP2/providers/Microsoft.Network/networkInterfaces/myNIC|/subscriptions/765266c6-9a23-4638-af32-dd1e32613047/resourceGroups/devops-TP2/providers/Microsoft.Network/networkSecurityGroups/myNetworkSecurityGroup_Hadi]
+azurerm_linux_virtual_machine.devops-20211136: Refreshing state... [id=/subscriptions/765266c6-9a23-4638-af32-dd1e32613047/resourceGroups/devops-TP2/providers/Microsoft.Compute/virtualMachines/devops-20211136]
+
+Changes to Outputs:
+  + public_ip_address   = "20.216.169.42"
+  + resource_group_name = "devops-TP2"
+  + tls_private_key     = (sensitive value)
+
+You can apply this plan to save these new output values to the Terraform state, without changing any real infrastructure.
+
+──────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────── 
+
+Saved the plan to: main.tfplan
+
+To perform exactly these actions, run the following command to apply:
+    terraform apply "main.tfplan"
+hadi@LAPTOP-ADEE62RQ:/mnt/c/Users/hadij/Downloads/Devops/TP4$
+
