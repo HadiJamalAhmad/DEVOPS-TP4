@@ -380,3 +380,33 @@ To perform exactly these actions, run the following command to apply:
     terraform apply "main.tfplan"
 hadi@LAPTOP-ADEE62RQ:/mnt/c/Users/hadij/Downloads/Devops/TP4$
 
+
+
+
+
+
+
+
+
+# Vérifier les résultats
+Pour utiliser SSH pour vous connecter à la machine virtuelle, procédez comme suit :
+
+hadi@LAPTOP-ADEE62RQ:/mnt/c/Users/hadij/Downloads/Devops/TP4$ terraform output -raw tls_private_key > id_rsa
+hadi@LAPTOP-ADEE62RQ:/mnt/c/Users/hadij/Downloads/Devops/TP4$ terraform output public_ip_address
+"20.111.46.251"
+hadi@LAPTOP-ADEE62RQ:/mnt/c/Users/hadij/Downloads/Devops/TP4$ ssh -i id_rsa azureuser@<public_ip_address>
+-bash: syntax error near unexpected token `newline'
+hadi@LAPTOP-ADEE62RQ:/mnt/c/Users/hadij/Downloads/Devops/TP4$ ssh -i id_rsa azureuser@20.111.46.251
+The authenticity of host '20.111.46.251 (20.111.46.251)' can't be established.
+ECDSA key fingerprint is SHA256:FNNkTi+tqSDO8eiyp/N4ZrXIUnxUVD+8FX3KZ+gYlhg.
+Are you sure you want to continue connecting (yes/no/[fingerprint])? yes
+Warning: Permanently added '20.111.46.251' (ECDSA) to the list of known hosts.
+@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+@         WARNING: UNPROTECTED PRIVATE KEY FILE!          @
+@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+Permissions 0777 for 'id_rsa' are too open.
+It is required that your private key files are NOT accessible by others.
+This private key will be ignored.
+Load key "id_rsa": bad permissions
+azureuser@20.111.46.251: Permission denied (publickey).
+hadi@LAPTOP-ADEE62RQ:/mnt/c/Users/hadij/Downloads/Devops/TP4$
