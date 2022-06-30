@@ -1,6 +1,6 @@
 # DEVOPS-TP4
 
-J'ai eu des prblèmes pour push mes fichiers j'ai du finalement me résoudre à les mettres manuellement.
+J'ai eu des problèmes pour push mes fichiers j'ai du finalement me résoudre à les mettres manuellement.
 
 Problème en question : 
 hadij@LAPTOP-ADEE62RQ MINGW64 ~/Downloads/Devops/TP4 (master)
