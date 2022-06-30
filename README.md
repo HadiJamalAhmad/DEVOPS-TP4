@@ -1,5 +1,26 @@
 # DEVOPS-TP4
 
+J'ai eu des prblèmes pour push mes fichiers j'ai du finalement me résoudre à les mettres manuellement.
+
+Problème en question : 
+hadij@LAPTOP-ADEE62RQ MINGW64 ~/Downloads/Devops/TP4 (master)
+$ git push --set-upstream origin master
+Enumerating objects: 35, done.
+Counting objects: 100% (35/35), done.
+Delta compression using up to 16 threads
+Compressing objects: 100% (25/25), done.
+Writing objects: 100% (35/35), 40.34 MiB | 3.63 MiB/s, done.
+Total 35 (delta 6), reused 0 (delta 0), pack-reused 0
+remote: Resolving deltas: 100% (6/6), done.
+remote: error: Trace: 5d5e89ee96d82988a539f2e8d9d413f0fda8b7bfb5b73114438228279bed886b
+remote: error: See http://git.io/iEPt8g for more information.
+remote: error: File .terraform/providers/registry.terraform.io/hashicorp/azurerm/3.0.0/linux_amd64/terraform-provider-azurerm_v3.0.0_x5 is 169.36 MB; this exceeds GitHub's file size limit of 100.00 MB
+remote: error: GH001: Large files detected. You may want to try Git Large File Storage - https://git-lfs.github.com.
+To https://github.com/HadiJamalAhmad/DEVOPS-TP4
+ ! [remote rejected] master -> master (pre-receive hook declined)
+error: failed to push some refs to 'https://github.com/HadiJamalAhmad/DEVOPS-TP4'
+
+
 
 # terraform init
 
