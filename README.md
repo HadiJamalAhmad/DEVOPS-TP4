@@ -394,19 +394,41 @@ Pour utiliser SSH pour vous connecter à la machine virtuelle, procédez comme s
 hadi@LAPTOP-ADEE62RQ:/mnt/c/Users/hadij/Downloads/Devops/TP4$ terraform output -raw tls_private_key > id_rsa
 hadi@LAPTOP-ADEE62RQ:/mnt/c/Users/hadij/Downloads/Devops/TP4$ terraform output public_ip_address
 "20.111.46.251"
-hadi@LAPTOP-ADEE62RQ:/mnt/c/Users/hadij/Downloads/Devops/TP4$ ssh -i id_rsa azureuser@<public_ip_address>
--bash: syntax error near unexpected token `newline'
-hadi@LAPTOP-ADEE62RQ:/mnt/c/Users/hadij/Downloads/Devops/TP4$ ssh -i id_rsa azureuser@20.111.46.251
-The authenticity of host '20.111.46.251 (20.111.46.251)' can't be established.
-ECDSA key fingerprint is SHA256:FNNkTi+tqSDO8eiyp/N4ZrXIUnxUVD+8FX3KZ+gYlhg.
-Are you sure you want to continue connecting (yes/no/[fingerprint])? yes
-Warning: Permanently added '20.111.46.251' (ECDSA) to the list of known hosts.
-@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
-@         WARNING: UNPROTECTED PRIVATE KEY FILE!          @
-@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
-Permissions 0777 for 'id_rsa' are too open.
-It is required that your private key files are NOT accessible by others.
-This private key will be ignored.
-Load key "id_rsa": bad permissions
-azureuser@20.111.46.251: Permission denied (publickey).
-hadi@LAPTOP-ADEE62RQ:/mnt/c/Users/hadij/Downloads/Devops/TP4$
+
+
+# ssh -i ~/.ssh/id_rsa devops@20.111.46.251
+
+hadi@LAPTOP-ADEE62RQ:/mnt/c/Users/hadij/Downloads/Devops/TP4$ ssh -i ~/.ssh/id_rsa devops@20.111.46.251
+Welcome to Ubuntu 16.04.7 LTS (GNU/Linux 4.15.0-1113-azure x86_64)
+
+ * Documentation:  https://help.ubuntu.com
+ * Management:     https://landscape.canonical.com
+ * Support:        https://ubuntu.com/advantage
+
+UA Infra: Extended Security Maintenance (ESM) is not enabled.
+
+1 update can be applied immediately.
+To see these additional updates run: apt list --upgradable
+
+145 additional security updates can be applied with UA Infra: ESM
+Learn more about enabling UA Infra: ESM service for Ubuntu 16.04 at
+https://ubuntu.com/16-04
+
+Ubuntu comes with ABSOLUTELY NO WARRANTY, to the extent permitted by
+applicable law.
+
+
+
+The programs included with the Ubuntu system are free software;
+the exact distribution terms for each program are described in the
+individual files in /usr/share/doc/*/copyright.
+
+Ubuntu comes with ABSOLUTELY NO WARRANTY, to the extent permitted by
+applicable law.
+
+To run a command as administrator (user "root"), use "sudo <command>".
+See "man sudo_root" for details.
+
+devops@myvm:~$
+
+
